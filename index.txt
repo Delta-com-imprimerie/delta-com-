@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<h1>Imprimerie à Cournon-d'Auvergne – Delta Com'</h1>
+<p>Cartes de visite, flyers, affiches, stickers et impression grand format près de Clermont-Ferrand.</p>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+--rose:#e6007e;
+--rose2:#ff2aa3;
+--dark:#111;
+--light:#f6f6f8;
+}
+
+*{box-sizing:border-box}
+
+body{
+margin:0;
+font-family:Poppins,sans-serif;
+background:white;
+color:#222;
+scroll-behavior: smooth;
+overflow-x:hidden;
+}
+
+header{
+position:fixed;
+top:0;
+width:100%;
+background:rgba(255,255,255,.85);
+backdrop-filter:blur(10px);
+box-shadow:0 10px 30px rgba(0,0,0,.08);
+z-index:1000;
+}
+
+nav{
+max-width:1200px;
+margin:auto;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 20px;
+}
+
+nav img{height:50px}
+
+nav a{
+margin-left:25px;
+text-decoration:none;
+font-weight:500;
+color:#333;
+transition:.3s;
+}
+
+nav a:hover{color:var(--rose)}
+
+.hero{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+color:white;
+background:linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.65)),url('20221124_163037.jpg');
+background-size:cover;
+background-position:center;
+}
+
+.hero h1{
+font-size:70px;
+letter-spacing:3px;
+animation:heroFade 1.2s ease;
+}
+
+.hero p{
+font-size:24px;
+opacity:.9;
+animation:heroFade 1.8s ease;
+}
+
+.btn{
+margin-top:30px;
+padding:15px 35px;
+background:var(--rose);
+color:white;
+text-decoration:none;
+border-radius:40px;
+font-weight:600;
+transition:.4s;
+box-shadow:0 15px 35px rgba(230,0,126,.4);
+}
+
+.btn:hover{
+transform:translateY(-4px) scale(1.03);
+background:var(--rose2);
+box-shadow:0 25px 50px rgba(230,0,126,.6);
+}
+
+section{
+padding:120px 20px;
+max-width:1200px;
+margin:auto;
+text-align:center;
+}
+
+h2{
+font-size:40px;
+margin-bottom:20px;
+}
+
+.services{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+gap:35px;
+margin-top:50px;
+}
+
+.card{
+padding:40px;
+border-radius:18px;
+background:white;
+box-shadow:0 20px 50px rgba(0,0,0,.08);
+transition:.5s;
+}
+
+.card:hover{
+transform:translateY(-12px) scale(1.05);
+box-shadow:0 35px 70px rgba(0,0,0,.15);
+}
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:30px;
+margin-top:50px;
+}
+
+.gallery img{
+width:100%;
+border-radius:14px;
+box-shadow:0 20px 50px rgba(0,0,0,.18);
+transition:transform .6s, box-shadow .6s;
+}
+
+.gallery img:hover{
+transform:scale(1.12) rotate(1deg);
+box-shadow:0 30px 80px rgba(0,0,0,.3);
+}
+
+.fade{
+opacity:0;
+transform:translateY(60px);
+transition:all 1s ease;
+}
+
+.fade.visible{
+opacity:1;
+transform:translateY(0);
+}
+
+.parallax{
+height:60vh;
+background:url('https://images.unsplash.com/photo-1581091215367-59ab6b0f4b4c?auto=format&fit=crop&w=1500&q=80');
+background-size:cover;
+background-attachment:fixed;
+background-position:center;
+display:flex;
+align-items:center;
+justify-content:center;
+color:white;
+font-size:40px;
+font-weight:600;
+}
+
+.reviews{
+display:grid;
+gap:30px;
+margin-top:40px;
+}
+
+.review{
+background:var(--light);
+padding:30px;
+border-radius:14px;
+text-align:left;
+box-shadow:0 15px 40px rgba(0,0,0,.08);
+}
+
+.review:before{
+content:"⭐ ⭐ ⭐ ⭐ ⭐";
+color:var(--rose);
+display:block;
+margin-bottom:10px;
+}
+
+/* DEVIS FORM */
+
+.devis-box{
+background:var(--light);
+padding:50px;
+border-radius:20px;
+max-width:700px;
+margin:auto;
+}
+
+form{
+text-align:left;
+margin-top:20px;
+}
+
+input, textarea, select{
+width:100%;
+padding:14px;
+margin-top:10px;
+margin-bottom:20px;
+border-radius:8px;
+border:1px solid #ccc;
+font-family:Poppins;
+}
+
+button{
+background:var(--rose);
+color:white;
+border:none;
+padding:15px 30px;
+border-radius:30px;
+font-weight:600;
+cursor:pointer;
+}
+
+button:hover{background:var(--rose2)}
+
+footer{
+background:#111;
+color:white;
+text-align:center;
+padding:40px;
+margin-top:80px;
+}
+
+@keyframes heroFade{
+from{opacity:0;transform:translateY(40px)}
+to{opacity:1;transform:translateY(0)}
+}
+
+.upload-box{
+border:2px dashed #ccc;
+padding:40px;
+text-align:center;
+border-radius:10px;
+cursor:pointer;
+background:#fafafa;
+position:relative;
+}
+
+.upload-box input{
+position:absolute;
+width:100%;
+height:100%;
+top:0;
+left:0;
+opacity:0;
+cursor:pointer;
+}
+.hero-prev,
+.hero-next {
+position: absolute;
+top: 50%;
+transform: translateY(-50%);
+background: #ff0a78;
+color: white;
+border: none;
+width: 50px;
+height: 50px;
+border-radius: 50%;
+font-size: 22px;
+cursor: pointer;
+display: flex;
+align-items: center;
+justify-content: center;
+z-index: 10;
+}
+
+/* flèche gauche */
+.hero-prev {
+left: 200px;
+}
+
+/* flèche droite */
+.hero-next {
+right: 200px;
+}
+.details{
+opacity:0;
+max-height:0;
+overflow:hidden;
+transition:0.3s;
+}
+
+.card:hover .details{
+opacity:1;
+max-height:300px;
+margin-top:10px;
+}
+.details p{
+margin:4px 0;
+font-size:14px;
+color:white;
+}
+.card{
+padding:40px;
+border-radius:18px;
+background:white;
+box-shadow:0 20px 50px rgba(0,0,0,.08);
+transition:0.4s;
+position:relative;
+}
+
+.card:hover{
+background:var(--rose);
+color:white;
+transform:translateY(-10px) scale(1.05);
+}
+
+.details{
+max-height:0;
+overflow:hidden;
+opacity:0;
+transition:0.4s;
+margin-top:10px;
+}
+
+.card:hover .details{
+max-height:200px;
+opacity:1;
+}
+
+.details p{
+margin:4px 0;
+font-size:14px;
+}
+.hero{
+transition: opacity 0.5s ease;
+}
+
+.hero.fade-out{
+opacity:0;
+}
+.hero{
+background-color:black;
+transition: opacity 0.5s ease;
+}
+.hero{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+color:white;
+
+background-color:black;
+
+background:linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.65)),url('20221124_163037.jpg');
+background-size:cover;
+background-position:center;
+
+transition:opacity 0.5s ease;
+}
+section{
+scroll-margin-top:120px;
+}
+.call-btn{
+position:fixed;
+bottom:25px;
+right:25px;
+background:#e6007e;
+color:white;
+font-size:28px;
+width:60px;
+height:60px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+text-decoration:none;
+box-shadow:0 10px 25px rgba(0,0,0,.3);
+z-index:999;
+transition:0.3s;
+}
+
+.call-btn:hover{
+transform:scale(1.1);
+background:#ff2aa3;
+}
+</style>
+</head>
+<meta name="description" content="Delta Com' imprimerie à Cournon-d'Auvergne. Cartes de visite, flyers, affiches, stickers, textile personnalisé, bâches publicitaires et impression grand format.">
+<a href="tel:+33473682683" class="call-btn">
+📞
+</a>
+<body>
+<header>
+<nav>
+<a href="#">
+<img src="logo-delta-com.png.png" alt="Logo Delta Com'" height="55">
+</a>
+<div>
+<a href="#services">Services</a>
+<a href="#realisations">Réalisations</a>
+<a href="#avis">Avis</a>
+<a href="#devis">Devis</a>
+<a href="#contact">Contact</a>
+<a href="#map">Nous trouver</a>
+</div>
+</nav>
+</header>
+
+<div class="hero" id="hero">
+
+<button class="hero-prev" onclick="changeHero(-1)">❮</button>
+
+<h1>DELTA COM'</h1>
+<p>De la création à l'impression – Cournon-d'Auvergne</p>
+<a class="btn" href="#devis">Demander un devis</a>
+
+<button class="hero-next" onclick="changeHero(1)">❯</button>
+
+</div>
+
+<section id="services" class="fade">
+<h2>Nos services</h2>
+<p>
+Delta Com' est une imprimerie située à Cournon-d'Auvergne près de Clermont-Ferrand.
+Nous réalisons l'impression de cartes de visite, flyers, affiches, stickers,
+textile personnalisé, bâches publicitaires et impression grand format pour
+professionnels et particuliers.
+</p>
+<div class="services">
+<div class="card">
+
+<h3>Cartes de visite</h3>
+
+<div class="details">
+<p>Classiques</p>
+<p>Recto / verso</p>
+<p>Pelliculage mat ou brillant</p>
+<p>Coins arrondis</p>
+<p>Papier premium</p>
+</div>
+
+</div>
+
+<div class="card">
+
+<h3>Flyers</h3>
+
+<div class="details">
+<p>A6</p>
+<p>A5</p>
+<p>A4</p>
+<p>Recto / verso</p>
+<p>Papier 135g / 170g</p>
+</div>
+
+</div>
+
+<div class="card">
+
+<h3>Affiches</h3>
+
+<div class="details">
+<p>A4</p>
+<p>A3</p>
+<p>A2</p>
+<p>A1</p>
+<p>A0</p>
+<p>Grand format</p>
+</div>
+
+</div>
+<div class="card">
+
+<h3>Stickers</h3>
+
+<div class="details">
+<p>Autocollants</p>
+<p>Vitrophanie</p>
+<p>Micro-perforé</p>
+<p>Découpe à la forme</p>
+</div>
+
+</div>
+
+<div class="card">
+
+<h3>Textile personnalisé</h3>
+
+<div class="details">
+<p>T-shirts</p>
+<p>Sweats</p>
+<p>Casquettes</p>
+<p>Broderie</p>
+</div>
+
+</div>
+
+<div class="card">
+
+<h3>Objets personnalisés</h3>
+
+<div class="details">
+<p>Mugs</p>
+<p>Stylos</p>
+<p>Plaques</p>
+<p>Porte-clés</p>
+<p>briquets</p>
+</div>
+
+</div>
+
+<div class="card">
+
+<h3>Bâches publicitaires</h3>
+
+<div class="details">
+<p>Bâche PVC</p>
+<p>Grand format</p>
+<p>Avec œillets</p>
+<p>Extérieur / intérieur</p>
+</div>
+
+</div>
+
+<div class="card">
+
+<h3>Signalétique</h3>
+
+<div class="details">
+<p>Panneaux</p>
+<p>Plaques professionnelles</p>
+<p>Adhésifs vitrines</p>
+<p>Signalétique intérieure</p>
+</div>
+
+</div>
+
+<div class="card">
+
+<h3>Plans grands formats</h3>
+
+<div class="details">
+<p>A2</p>
+<p>A1</p>
+<p>A0</p>
+<p>Traceur haute qualité</p>
+</div>
+
+</div>
+
+<div class="card">
+
+<h3>Scan de A4 à A0</h3>
+
+<div class="details">
+<p>Documents</p>
+<p>Plans</p>
+<p>Grand format</p>
+<p>Numérisation haute résolution</p>
+</div>
+
+</div>
+
+<div class="card">
+
+<h3>Livres</h3>
+
+<div class="details">
+<p>Impression</p>
+<p>Reliure</p>
+<p>Petites séries</p>
+<p>Dossiers / rapports</p>
+</div>
+
+</div>
+
+<div class="card">
+
+<h3>Tampons</h3>
+
+<div class="details">
+<p>Tampons automatiques</p>
+<p>Tampons personnalisés</p>
+<p>Encre noire ou couleur</p>
+</div>
+
+</div> 
+
+
+
+</div>
+</section>
+
+<div class="parallax">Impression professionnelle</div>
+
+<section id="realisations" class="fade">
+
+<h2>Nos réalisations</h2>
+<p>
+Découvrez quelques réalisations de notre imprimerie à Cournon-d'Auvergne :
+impression de stickers, flyers, signalétique, objets personnalisés et
+supports de communication pour entreprises et associations.
+</p>
+
+<h3>Cartes de visite et stickers</h3>
+
+<div class="gallery">
+<img src="stickers-cegesma.jpg.webp" alt="Stickers personnalisés Cournon d'Auvergne">
+<img src="2025-09-10.webp.webp" alt="Stickers fromage personnalisés">
+</div>
+
+
+<h3>Objets personnalisés</h3>
+
+<div class="gallery">
+<img src="2023-02-28.jpg" alt="Impression flyers Cournon d'Auvergne">
+<img src="2025-01-01.jpg" alt="Affiche promotionnelle imprimée">
+</div>
+
+
+<h3>Signalétique et gravure</h3>
+
+<div class="gallery">
+<img src="Plexi_découpe_à_la_forme.jpg" alt="Découpe plexiglas signalétique">
+<img src="vache.jpg.jpg" alt="Gravure plaque personnalisée">
+<img src="IMG20260303115022.jpg" alt="Gravure plaque personnalisée">
+</div>
+</div></section>
+
+<section id="avis" class="fade">
+<h2>Avis clients</h2>
+
+
+
+<div class="reviews">
+
+<div class="review">J'ai fait appel à Delta com pour un travail d'impression en urgence. Marie Noëlle a fait preuve d'une grande réactivité et a su m'accompagner au mieux. Je recommande.</div>
+
+<div class="review">Compagnie théâtrale, nous faisons régulièrement appel à Deltacom pour des éléments de communication ou de scénographie et nous sommes toujours satisfaits.</div>
+
+<div class="review">Service rapide, efficace, de qualité avec le sourire et la gentillesse. Je recommande fortement.</div>
+
+<div class="review">Elle a su s'adapter à mes besoins et me conseiller. Très professionnel. Merci Marie Noëlle.</div>
+
+<div class="review">Travail top et très rapide pour un mug personnalisé. Accueil hors pair.</div>
+
+<div class="review">Professionnalisme et sérieux pour tous travaux d'impression, copie, reliure et documents.</div>
+
+</div>
+</section>
+
+<section id="devis" class="fade">
+<h2>Demande de devis</h2>
+
+<div class="devis-box">
+
+<form action="https://formspree.io/f/mwvrllkg" method="POST" enctype="multipart/form-data">
+
+<label>Nom</label>
+<input type="text" name="nom" placeholder="Votre nom">
+
+<label>Email</label>
+<input type="email" name="email" placeholder="Votre email">
+
+<label>Téléphone</label>
+<input type="tel" name="telephone" placeholder="Votre téléphone">
+
+<label>Type d'impression</label>
+<select name="type_impression">
+<option>Cartes de visite</option>
+<option>Flyers</option>
+<option>Affiches</option>
+<option>Stickers</option>
+<option>Textile</option>
+<option>Tampons</option>
+<option>Livres</option>
+<option>Plans grands formats</option>
+<option>Reliure</option>
+<option>Scan de A4 à A0</option>
+<option>Objets personnalisés</option>
+<option>Sur demande</option>
+</select>
+
+<label>Message</label>
+<textarea name="message" rows="5" placeholder="Expliquez votre projet..."></textarea>
+
+<label>Joindre un fichier</label>
+
+<div class="upload-box">
+<div id="uploadText">Cliquez ou glissez vos fichiers ici</div>
+<input type="file" name="fichiers" id="fileInput" multiple>
+</div>
+
+<button type="submit">Envoyer la demande</button>
+
+</form>
+</div>
+</section>
+
+<section id="contact" class="fade">
+<h2>Contact</h2>
+<p><b>Delta Com'</b></p>
+<p>Centre d'affaires Le Triangle</p>
+<p>17 Rue de Sarliève</p>
+<p>63800 Cournon-d'Auvergne Clermont</p>
+<p>contact@deltacom-clermont.com</p>
+<p>📞 04 73 68 26 83 - 06 82 15 83 92</p>
+</section>
+<section id="map">
+<h2>Nous trouver</h2>
+
+<div style="width:100%;max-width:1000px;margin:auto;border-radius:15px;overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,.2);">
+
+
+<iframe
+src="https://www.google.com/maps?q=17%20Rue%20de%20Sarliève%2063800%20Cournon-d'Auvergne&output=embed"
+width="100%"
+height="400"
+style="border:0;"
+allowfullscreen=""
+loading="lazy">
+</iframe>
+
+</div>
+
+</section>
+<footer>
+© 2026 Delta Com – Imprimerie à Cournon-d'Auvergne
+</footer>
+
+<script>
+const faders=document.querySelectorAll('.fade');
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){entry.target.classList.add('visible');}
+});
+});
+faders.forEach(el=>observer.observe(el));
+</script>
+<script>
+
+const fileInput = document.getElementById("fileInput");
+const uploadText = document.getElementById("uploadText");
+
+fileInput.addEventListener("change", function () {
+
+let files = fileInput.files;
+
+if(files.length === 0){
+uploadText.innerHTML = "Cliquez ou glissez vos fichiers ici";
+return;
+}
+
+let list = "";
+
+for(let i = 0; i < files.length; i++){
+list += files[i].name + "<br>";
+}
+
+uploadText.innerHTML = list;
+
+});
+
+const images = [
+"20221124_163037.jpg",
+"IMG_20220511_152445.jpg",
+"20221124_163010.jpg.jpg",
+"IMG_20220614_120258.jpg"
+];
+
+let currentImage = 0;
+
+function changeHero(direction){
+
+const hero = document.getElementById("hero");
+
+hero.classList.add("fade-out");
+
+setTimeout(function(){
+
+currentImage += direction;
+
+if(currentImage < 0){
+currentImage = images.length - 1;
+}
+
+if(currentImage >= images.length){
+currentImage = 0;
+}
+
+hero.style.background =
+"linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.65)), url('" + images[currentImage] + "') center / cover";
+
+hero.classList.remove("fade-out");
+
+}, 300);
+
+}
+</script>
+</body>
+</html>
