@@ -748,28 +748,6 @@ faders.forEach(el=>observer.observe(el));
 </script>
 <script>
 
-const fileInput = document.getElementById("fileInput");
-const uploadText = document.getElementById("uploadText");
-
-fileInput.addEventListener("change", function () {
-
-let files = fileInput.files;
-
-if(files.length === 0){
-uploadText.innerHTML = "Cliquez ou glissez vos fichiers ici";
-return;
-}
-
-let list = "";
-
-for(let i = 0; i < files.length; i++){
-list += files[i].name + "<br>";
-}
-
-uploadText.innerHTML = list;
-
-});
-
 const images = [
 "20221124_163037.jpg",
 "IMG_20220511_152445.jpg",
